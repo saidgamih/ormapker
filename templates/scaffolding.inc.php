@@ -4,13 +4,12 @@ $loactions = [];
 
    
 $args = array(  
-    'post_type' => 'marker',
+    'post_type' => 'ormapker_marker',
  );
 
 $loop = new WP_Query( $args ); 
 
 while ( $loop->have_posts() ) : $loop->the_post(); 
-    // echo get_the_title() . ' ' . get_field('latitude') . ' / ' . get_field('longitude'); 
     $loactions[] = [get_the_title(), get_the_content(), get_field('latitude'), get_field('longitude')];
 endwhile;
 
@@ -30,13 +29,13 @@ wp_reset_postdata();
         let mapContainer = document.querySelector("#map");
         function initMap() {
             var center = {
-                lat: 34.052235,
-                lng: -118.243683,
+                lat: <?php echo get_option('orampker_centre_latitude'); ?>,
+                lng: <?php echo get_option('orampker_centre_longitude'); ?>,
             };
             var locations = JSON.parse(mapContainer.dataset.json);
             console.log(locations);
             var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 9,
+                zoom: <?php echo get_option('orampker_zoom'); ?>,
                 center: center,
             });
 
