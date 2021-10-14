@@ -1,12 +1,15 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Plugin Name: Ormapker
- * Plugin URI: http://www.mywebsite.com/my-first-plugin
- * Description: The very first plugin that I have ever created.
+ * Plugin URI: https://github.com/saidgamih/ormapker
+ * Description: Ormapker is a wordpress plugin to embbed a multilocations map easily.
  * Version: 1.0
- * Author: Lorem
+ * Author: Said Gamih
+ * Author: URI: https://saidgamih.com
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // Settings Page: Orampker
 require plugin_dir_path(__FILE__) . '/Ormapker_Setting_Page.php';
