@@ -2,7 +2,7 @@
 **Ormapker** is a wordpress plugin to embbed a multilocations map easily.
 
 ## License
-This plugin is released under the GNU General Public License Version 2 (GPLv2). For details, see [license.txt](https://github.com/saidgamih/ormapker/blob/master/license.txt)
+This plugin is released under the GNU General Public License Version 2 (GPLv2). For details, see [license.txt](./license.txt)
 
 ## Prerequisites
 - You need to have a Google Maps JS API key ([how to get your key](https://developers.google.com/maps/documentation/javascript/get-api-key))
