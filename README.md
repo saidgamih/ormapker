@@ -17,7 +17,7 @@ The option page has the following fields:
 
 1. `Google Maps API key`: you can find this in your google developer console.
 2. `Centre latitude`: the latitude of the central point of your map.
-3. `Centre logitude`: the logitude of the central point of your map.
+3. `Centre longitude`: the longitude of the central point of your map.
 4. `Zoom level`: the zoom of your map.
 
 ## Display the map
