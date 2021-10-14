@@ -25,12 +25,10 @@ if (class_exists('OrmapkerMetabox')) {
 // Create a short code
  function ormapker_show_map_func($atts)
  {
-     if(get_option('ormapker_active')) {
-        ob_start();
-        require 'templates/scaffolding.inc.php';
-        $content = ob_get_clean();
-        return $content;
-     }
+    ob_start();
+    require 'templates/scaffolding.inc.php';
+    $content = ob_get_clean();
+    return $content;
  }
 
  add_shortcode('ormapker_short_code', 'ormapker_show_map_func');

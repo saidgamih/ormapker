@@ -39,6 +39,7 @@ class Ormapker_Settings_Page {
 
     public function wph_setup_fields() {
         $fields = array(
+
                     array(
                         'section' => 'Ormapker_section',
                         'label' => 'Google Maps API',
@@ -46,13 +47,14 @@ class Ormapker_Settings_Page {
                         'desc' => 'Put your google maps API',
                         'type' => 'text',
                     ),
-                    array(
-                        'section' => 'Ormapker_section',
-                        'label' => 'Active',
-                        'id' => 'ormapker_active',
-                        'desc' => 'Activate / deactivate Ormapker',
-                        'type' => 'checkbox',
-                    ),
+
+                    // array(
+                    //     'section' => 'Ormapker_section',
+                    //     'label' => 'Active',
+                    //     'id' => 'ormapker_active',
+                    //     'desc' => 'Activate / deactivate Ormapker',
+                    //     'type' => 'checkbox',
+                    // ),
         
                     array(
                         'section' => 'Ormapker_section',
