@@ -3,7 +3,7 @@
 // Register Custom Post Type Marker
 // Post Type Key: Marker
 
-class Orampker_Create_Marker {
+class Ormapker_Create_Marker {
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class Orampker_Create_Marker {
         $labels = array(
             'name' => _x( 'Markers', 'Post Type General Name', 'ormapker' ),
             'singular_name' => _x( 'Marker', 'Post Type Singular Name', 'ormapker' ),
-            'menu_name' => _x( 'Markers', 'Admin Menu text', 'ormapker' ),
+            'menu_name' => _x( 'Google Maps markers', 'Admin Menu text', 'ormapker' ),
             'name_admin_bar' => _x( 'Marker', 'Add New on Toolbar', 'ormapker' ),
             'archives' => __( 'Marker', 'ormapker' ),
             'attributes' => __( 'Marker', 'ormapker' ),
@@ -45,11 +45,11 @@ class Orampker_Create_Marker {
             'label' => __( 'Marker', 'ormapker' ),
             'description' => __( 'Map marker', 'ormapker' ),
             'labels' => $labels,
-            'menu_icon' => 'dashicons-marker',
-            'supports' => array('title', 'editor', 'custom-fields'),
+            'menu_icon' => 'dashicons-location-alt',
+            'supports' => array('title', 'editor'),
             'taxonomies' => array(),
             'hierarchical' => false,
-            'exclude_from_search' => false,
+            'exclude_from_search' => true,
             'publicly_queryable' => true,
             'has_archive' => false,
             'public' => false,

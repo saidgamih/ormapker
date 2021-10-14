@@ -1,6 +1,6 @@
 <?php
 
-class Orampker_Settings_Page {
+class Ormapker_Settings_Page {
 
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'wph_create_settings' ) );
@@ -9,23 +9,24 @@ class Orampker_Settings_Page {
     }
 
     public function wph_create_settings() {
-        $page_title = 'Orampker settings';
-        $menu_title = 'Orampker';
+        $page_title = 'Ormapker settings';
+        $menu_title = 'Ormapker';
         $capability = 'manage_options';
-        $slug = 'Orampker';
+        $slug = 'Ormapker';
         $callback = array($this, 'wph_settings_content');
-                add_options_page($page_title, $menu_title, $capability, $slug, $callback);
-        
+        $icon = 'dashicons-location';
+        // $position = 7;
+        add_menu_page($page_title, $menu_title, $capability, $slug, $callback, $icon);  
     }
 
     public function wph_settings_content() { ?>
         <div class="wrap">
-            <h1>Orampker</h1>
+            <h1>Ormapker</h1>
             <?php settings_errors(); ?>
             <form method="POST" action="options.php">
                 <?php
-                    settings_fields( 'Orampker' );
-                    do_settings_sections( 'Orampker' );
+                    settings_fields( 'Ormapker' );
+                    do_settings_sections( 'Ormapker' );
                     submit_button();
                 ?>
             </form>
@@ -33,64 +34,72 @@ class Orampker_Settings_Page {
     }
 
     public function wph_setup_sections() {
-        add_settings_section( 'Orampker_section', 'Manage Orampker settings', array(), 'Orampker' );
+        add_settings_section( 'Ormapker_section', 'Manage Ormapker settings', array(), 'Ormapker' );
     }
 
     public function wph_setup_fields() {
         $fields = array(
                     array(
-                        'section' => 'Orampker_section',
+                        'section' => 'Ormapker_section',
+                        'label' => 'Google Maps API',
+                        'id' => 'ormapker_google_maps_api',
+                        'desc' => 'Put your google maps API',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'section' => 'Ormapker_section',
                         'label' => 'Active',
-                        'id' => 'orampker_active',
-                        'desc' => 'Activate / deactivate Orampker',
+                        'id' => 'ormapker_active',
+                        'desc' => 'Activate / deactivate Ormapker',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'Orampker_section',
+                        'section' => 'Ormapker_section',
                         'label' => 'Centre latitude',
-                        'id' => 'orampker_centre_latitude',
+                        'id' => 'ormapker_centre_latitude',
                         'desc' => 'Latitude of the central point of the map',
                         'type' => 'number',
                     ),
         
                     array(
-                        'section' => 'Orampker_section',
+                        'section' => 'Ormapker_section',
                         'label' => 'Centre longitude',
-                        'id' => 'orampker_centre_longitude',
+                        'id' => 'ormapker_centre_longitude',
                         'desc' => 'Longitude of the central point of the map',
                         'type' => 'text',
                     ),
         
                     array(
-                        'section' => 'Orampker_section',
+                        'section' => 'Ormapker_section',
                         'label' => 'Zoom level',
-                        'id' => 'orampker_zoom',
+                        'id' => 'ormapker_zoom',
                         'desc' => 'Zoom of the map',
                         'type' => 'number',
                     )
         );
         foreach( $fields as $field ){
-            add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'Orampker', $field['section'], $field );
-            register_setting( 'Orampker', $field['id'] );
+            add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'Ormapker', $field['section'], $field );
+            register_setting( 'Ormapker', $field['id'] );
         }
     }
+
     public function wph_field_callback( $field ) {
         $value = get_option( $field['id'] );
         $placeholder = '';
         if ( isset($field['placeholder']) ) {
             $placeholder = $field['placeholder'];
         }
-        switch ( $field['type'] ) {
+        switch ($field['type']) {
             case 'checkbox':
-                            printf('<input %s id="%s" name="%s" type="checkbox" value="1">',
-                                $value === '1' ? 'checked' : '',
-                                $field['id'],
-                                $field['id']
-                        );
-                    break;
+                printf('<input %s id="%s" name="%s" type="checkbox" value="1">',
+                    $value === '1' ? 'checked' : '',
+                    $field['id'],
+                    $field['id']
+                );
+                break;
             case 'number':
-                    printf( '<input name="%1$s" id="%1$s" type="%2$s" placeholder="%3$s" value="%4$s" step="any" />',
+                printf( '<input name="%1$s" id="%1$s" type="%2$s" placeholder="%3$s" value="%4$s" step="any" />',
                     $field['id'],
                     $field['type'],
                     $placeholder,

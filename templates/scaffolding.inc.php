@@ -1,16 +1,22 @@
 <?php 
 
+// options
 $loactions = [];
-
+$maps_api = get_option('ormapker_google_maps_api', 'xxxxxxxxxxxxxxxx');
+$map_center_lat = get_option('orampker_centre_latitude', 41.067452);
+$map_center_lng = get_option('orampker_centre_longitude', -103.956911);
+$map_zoom = get_option('ormapker_zoom', 1);
    
+// Get ormapker records
 $args = array(  
     'post_type' => 'ormapker_marker',
  );
 
 $loop = new WP_Query( $args ); 
 
-while ( $loop->have_posts() ) : $loop->the_post(); 
-    $loactions[] = [get_the_title(), get_the_content(), get_field('latitude'), get_field('longitude')];
+while ($loop->have_posts() ) : 
+    $loop->the_post(); 
+    $loactions[] = [get_the_title(), get_the_content(), get_post_meta(get_the_ID(), 'ormapker_marker_lat', true), get_post_meta(get_the_ID(), 'ormapker_marker_lng', true)];
 endwhile;
 
 wp_reset_postdata();
@@ -29,13 +35,13 @@ wp_reset_postdata();
         let mapContainer = document.querySelector("#map");
         function initMap() {
             var center = {
-                lat: <?php echo get_option('orampker_centre_latitude'); ?>,
-                lng: <?php echo get_option('orampker_centre_longitude'); ?>,
+                lat: <?php echo $map_center_lat; ?>,
+                lng: <?php echo $map_center_lng; ?>,
             };
             var locations = JSON.parse(mapContainer.dataset.json);
             console.log(locations);
             var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: <?php echo get_option('orampker_zoom'); ?>,
+                zoom: <?php echo $map_zoom; ?>,
                 center: center,
             });
 
@@ -65,4 +71,4 @@ wp_reset_postdata();
         }
     </script>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtkQHnhbFcYABEBesoqcpepp3IM3nMQQ0&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $maps_api ?>&callback=initMap"></script>
