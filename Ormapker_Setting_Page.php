@@ -42,9 +42,9 @@ class Ormapker_Settings_Page {
 
                     array(
                         'section' => 'Ormapker_section',
-                        'label' => 'Google Maps API',
+                        'label' => 'Google Maps API key',
                         'id' => 'ormapker_google_maps_api',
-                        'desc' => 'Put your google maps API',
+                        'desc' => 'Put your google maps API key',
                         'type' => 'text',
                     ),
 
