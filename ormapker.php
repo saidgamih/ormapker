@@ -6,7 +6,7 @@
  * Description: Ormapker is a wordpress plugin to embbed a multilocations map easily.
  * Version: 1.0
  * Author: Said Gamih
- * Author: URI: https://saidgamih.com
+ * Author URI: https://saidgamih.com
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
