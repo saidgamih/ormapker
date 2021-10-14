@@ -5,7 +5,7 @@
 - You need to have a Google Maps JS API key ([how to get your key](https://developers.google.com/maps/documentation/javascript/get-api-key))
 
 ## Installation
-1. Download the zip file
+1. Download the zip file ([from here](https://github.com/saidgamih/ormapker/archive/refs/heads/master.zip))
 2. Install the plugin from wordpress dashboard
 
 ## Configuration
