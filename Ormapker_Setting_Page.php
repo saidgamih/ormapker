@@ -44,6 +44,15 @@ class Ormapker_Settings_Page {
 
 	public function wph_setup_fields() {
 		$fields = array(
+
+					array(
+						'section' => 'Ormapker_section',
+						'label' => 'Google Maps API key',
+						'id' => 'ormapker_google_maps_api',
+						'desc' => 'Add your Google Maps API key',
+						'type' => 'text',
+					),
+
                     array(
                         'section' => 'Ormapker_section',
                         'label' => 'Centre latitude',
