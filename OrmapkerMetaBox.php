@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Meta Box Class: OrmapkerMetaBox
 // Get the field value: $metavalue = get_post_meta( $post_id, $field_id, true );
 class OrmapkerMetaBox{
@@ -180,8 +183,4 @@ class OrmapkerMetaBox{
 		}
 	}
 }
-
-if (class_exists('OrmapkerMetabox')) {
-	new OrmapkerMetabox;
-};
 

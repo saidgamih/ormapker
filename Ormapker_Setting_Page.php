@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Settings Page: Ormapker
 // Retrieving values: get_option( 'your_field_id' )
 class Ormapker_Settings_Page {
@@ -14,7 +16,7 @@ class Ormapker_Settings_Page {
 
 	public function wph_create_settings() {
 		$page_title = 'Ormapker settings';
-		$menu_title = 'Ormapker';
+		$menu_title = 'Ormapker settings';
 		$capability = 'manage_options';
 		$slug = 'Ormapker';
 		$callback = array($this, 'wph_settings_content');
@@ -44,15 +46,15 @@ class Ormapker_Settings_Page {
 
 	public function wph_setup_fields() {
 		$fields = array(
-
+					
 					array(
-						'section' => 'Ormapker_section',
-						'label' => 'Google Maps API key',
-						'id' => 'ormapker_google_maps_api',
-						'desc' => 'Add your Google Maps API key',
-						'type' => 'text',
-					),
-
+                        'section' => 'Ormapker_section',
+                        'label' => 'Google Maps API key',
+                        'id' => 'ormapker_google_maps_api',
+                        'desc' => 'Add your Google Maps API key',
+                        'type' => 'text',
+                    ),
+			
                     array(
                         'section' => 'Ormapker_section',
                         'label' => 'Centre latitude',
@@ -186,3 +188,4 @@ class Ormapker_Settings_Page {
 	}
     
 }
+                

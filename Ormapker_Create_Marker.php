@@ -1,5 +1,7 @@
 <?php 
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Register Custom Post Type Marker
 // Post Type Key: Marker
 

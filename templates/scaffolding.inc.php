@@ -3,9 +3,10 @@
 // options
 $loactions = [];
 $maps_api = get_option('ormapker_google_maps_api', 'xxxxxxxxxxxxxxxx');
-$map_center_lat = get_option('orampker_centre_latitude', 41.067452);
-$map_center_lng = get_option('orampker_centre_longitude', -103.956911);
+$map_center_lat = get_option('ormapker_centre_latitude', 41.067452);
+$map_center_lng = get_option('ormapker_centre_longitude', -103.956911);
 $map_zoom = get_option('ormapker_zoom', 1);
+$default_icon = !empty(get_option('ormapker_marker_icon')) ? get_option('ormapker_marker_icon') : "https://img.icons8.com/office/40/000000/marker.png";
    
 // Get ormapker records
 $args = array(  
@@ -16,7 +17,7 @@ $loop = new WP_Query( $args );
 
 while ($loop->have_posts() ) : 
     $loop->the_post(); 
-    $loactions[] = [get_the_title(), get_the_content(), get_post_meta(get_the_ID(), 'ormapker_marker_lat', true), get_post_meta(get_the_ID(), 'ormapker_marker_lng', true)];
+    $loactions[] = [get_the_title(), get_the_content(), get_post_meta(get_the_ID(), 'ormapker_marker_lat', true), get_post_meta(get_the_ID(), 'ormapker_marker_lng', true), (!empty(get_post_meta(get_the_ID(), 'ormapker_marker_icon', true)) ? get_post_meta(get_the_ID(), 'ormapker_marker_icon', true) : $default_icon)];
 endwhile;
 
 wp_reset_postdata();
@@ -55,6 +56,7 @@ wp_reset_postdata();
                     ),
                     map: map,
                     title: locations[count][0],
+					icon: locations[count][4]
                 });
 
                 google.maps.event.addListener(
